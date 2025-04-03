@@ -17,3 +17,9 @@ class RecipeModelTest(RecipeTestBase):
         setattr(self.recipe, field,'A' * (max_length + 1))
         with self.assertRaises(ValidationError):
             self.recipe.full_clean()
+
+    def test_recipe_string_representation(self):
+        needed = 'testing representation'
+        self.recipe.title = needed
+        self.recipe.full_clean()
+        self.assertEqual(str(self.recipe), needed)
