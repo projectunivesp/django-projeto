@@ -40,8 +40,9 @@ class RecipeHomePageFunctionalTest(RecipeBaseFunctionalTest):
         # O usuário vê o que estava procurando na página
         self.assertIn(
             title_needed,
-            self.browser.find_element(By.CLASS_NAME, 'main-content-list').text,
+            self.browser.find_element(By.CLASS_NAME, 'recipe-title').text,
         )
+
         
 
     @patch('recipes.views.PER_PAGE', new=2)
